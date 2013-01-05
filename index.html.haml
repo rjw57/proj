@@ -1,0 +1,38 @@
+%div.container
+  %div#alerts
+
+  %h2 Step 1: Select data
+  %div.row
+    %form.form-inline.span6.offset3
+      %label{ for: 'csv-input' } Input CSV file:
+      %input#csv-input{ type: 'file', name: 'csv-input' }
+
+  %h2 Step 2: Select projection
+  %div.row
+    %table.table-striped.span12
+      %thead
+        %tr
+          %th{ colspan: 2 }
+            %h4 Input
+            %select#input-projection.span5= render '_projections.html.haml'
+          %th{ colspan: 2 }
+            %h4 Output
+            %select#output-projection.span5= render '_projections.html.haml'
+        %tr
+          %th
+            %select#input-x{ name: 'x', data: { coord: 'x' } }
+          %th
+            %select#input-y{ name: 'y', data: { coord: 'y' } }
+          %th X
+          %th Y
+      %tbody#data
+
+  %div.row
+    %div.span12
+      %span#stats
+      %span.muted
+        %strong Note:
+        At most 10 data rows are shown.
+
+  %h2 Step 3: Download
+  %button.span4.offset4#download{ class: 'btn btn-large btn-success' } Download as CSV
