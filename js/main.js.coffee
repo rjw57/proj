@@ -121,9 +121,9 @@ setInput = (headers, rows) =>
             opt.attr('value', idx)
             opt.text(heading)
 
-            if col == 'x' and heading == 'Latitude'
+            if col == 'y' and heading == 'Latitude'
                 opt.attr('selected', 1)
-            if col == 'y' and heading == 'Longitude'
+            if col == 'x' and heading == 'Longitude'
                 opt.attr('selected', 1)
 
             $('#input-' + col).append(opt)
