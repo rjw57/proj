@@ -129,10 +129,10 @@
         opt = $('<option>');
         opt.attr('value', idx);
         opt.text(heading);
-        if (col === 'x' && heading === 'Latitude') {
+        if (col === 'y' && heading === 'Latitude') {
           opt.attr('selected', 1);
         }
-        if (col === 'y' && heading === 'Longitude') {
+        if (col === 'x' && heading === 'Longitude') {
           opt.attr('selected', 1);
         }
         $('#input-' + col).append(opt);
