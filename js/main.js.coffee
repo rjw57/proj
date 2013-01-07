@@ -4,13 +4,18 @@
 @inputData = []
 @coordIndices = [0, 0]
 
-@inputProj = new Proj4js.Proj('EPSG:4236')
-@outputProj = new Proj4js.Proj('EPSG:4236')
-
 @outputFilename = 'projected.csv'
 
 ## Main function (run on document load) #############################################################
 $ ->
+    # Projections defs
+    Proj4js.defs["EPSG:4326"] = "+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"
+    Proj4js.defs["EPSG:27700"] = "+proj=tmerc +lat_0=49 +lon_0=-2 +k=0.9996012717 +x_0=400000 +y_0=-100000 +ellps=airy +datum=OSGB36 +units=m +no_defs"
+
+    # Initialise input and output projections
+    @inputProj = new Proj4js.Proj('EPSG:4326')
+    @outputProj = new Proj4js.Proj('EPSG:4326')
+
     # Check for HTML5 File API
     if !window.File or !window.FileReader or !window.FileList or !window.Blob
         addAlert(
